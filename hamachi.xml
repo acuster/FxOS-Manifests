@@ -50,7 +50,7 @@
   <project path="gonk/abi/cpp"                                                 name="platform/abi/cpp" />
   <project path="gonk/bionic"                                                  name="platform/bionic" />
   <project path="gonk/bootable/recovery"                                       name="platform/bootable/recovery"           revision="b2g_ics_1.2" />
-  <project path="development"                                                  name="platform/development"                 revision="b2g_ics_1.2" />
+  <project path="gonk/development"                                             name="platform/development"                 revision="b2g_ics_1.2" />
   <project path="gonk/device/common"                                           name="device/common" />
   <project path="gonk/device/sample"                                           name="device/sample" />
   <project path="gonk/external/apriori"                    remote="b2g"        name="platform_external_apriori"            revision="master" />
