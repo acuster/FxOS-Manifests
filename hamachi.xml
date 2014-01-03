@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--              FxOS Project 'hamachi' Manifest                    -->
+<!--                                                                 -->
+<!--  Copyright 2013-2014, FxOS Project Contributors.                -->
+<!--  Licensed under the terms of the Mozilla Public License, v.2.0. -->
+<!--                                                                 -->
+<!--  This is a manifest for the 'repo' tool which defines the       -->
+<!--  source code required to build Firefox OS for the code name     -->
+<!--  target listed below and known to work on the listed devices.   -->
+<!--                                                                 -->
+<!--    Target: hamachi                                              -->
+<!--    Device: Alcatel OneTouch Fire                                -->
+
+<manifest>
+
+  <!-- Source Repositories-->
+  <remote name="aosp"       fetch="https://android.googlesource.com/" />
+  <remote name="b2g"        fetch="git://github.com/mozilla-b2g/" />
+  <remote name="mozilla"    fetch="git://github.com/mozilla/" />
+  <remote name="caf"        fetch="git://codeaurora.org/" />
+  <remote name="mozillaorg" fetch="https://git.mozilla.org/releases" />
+  <remote name="apitrace"   fetch="git://github.com/apitrace/" />
+  
+  <default remote="caf" revision="b2g/ics_strawberry" sync-j="4" />
+
+
+  <!-- Build script (forked from ndk) -->
+  <project path="build"                                    remote="b2g"        name="platform_build"                       revision="master">
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
+
+
+  <!-- Gaia, the Firefox OS applications -->
+  <project path="gaia"                                     remote="mozillaorg" name="gaia.git"                             revision="master" />
+
+
+  <!-- Gecko, the HTML engine ported to run on Gonk -->
+  <project path="gecko"                                    remote="mozillaorg" name="gecko.git"                            revision="master" />
+
+
+  <!-- Gonk specific things and forks -->
+  <project path="gonk/dalvik"                              remote="b2g"        name="fake-dalvik"                          revision="master" />
+  <project path="gonk/gonk-misc"                           remote="b2g"        name="gonk-misc"                            revision="master" />
+  <project path="gonk/rilproxy"                            remote="b2g"        name="rilproxy"                             revision="master" />
+  <project path="gonk/librecovery"                         remote="b2g"        name="librecovery"                          revision="master" />
+  <project path="gonk/external/moztt"                      remote="b2g"        name="moztt"                                revision="master" />
+  <project path="gonk/external/apitrace"                   remote="apitrace"   name="apitrace"                             revision="master" />
+  <!-- Stock Android things -->
+  <project path="gonk/abi/cpp"                                                 name="platform/abi/cpp" />
+  <project path="gonk/bionic"                                                  name="platform/bionic" />
+  <project path="gonk/bootable/recovery"                                       name="platform/bootable/recovery"           revision="b2g_ics_1.2" />
+  <project path="development"                                                  name="platform/development"                 revision="b2g_ics_1.2" />
+  <project path="gonk/device/common"                                           name="device/common" />
+  <project path="gonk/device/sample"                                           name="device/sample" />
+  <project path="gonk/external/apriori"                    remote="b2g"        name="platform_external_apriori"            revision="master" />
+  <project path="gonk/external/bluetooth/bluez"                                name="platform/external/bluetooth/bluez" />
+  <project path="gonk/external/bluetooth/glib"                                 name="platform/external/bluetooth/glib" />
+  <project path="gonk/external/bluetooth/hcidump"                              name="platform/external/bluetooth/hcidump" />
+  <project path="gonk/external/bsdiff"                                         name="platform/external/bsdiff" />
+  <project path="gonk/external/bzip2"                                          name="platform/external/bzip2" />
+  <project path="gonk/external/dbus"                                           name="platform/external/dbus" />
+  <project path="gonk/external/dhcpcd"                                         name="platform/external/dhcpcd" />
+  <project path="gonk/external/dnsmasq"                                        name="platform/external/dnsmasq" />
+  <project path="gonk/external/elfcopy"                    remote="b2g"        name="platform_external_elfcopy"            revision="master" />
+  <project path="gonk/external/elfutils"                   remote="b2g"        name="platform_external_elfutils"           revision="master" />
+  <project path="gonk/external/e2fsprogs"                                      name="platform/external/e2fsprogs" />
+  <project path="gonk/external/expat"                                          name="platform/external/expat" />
+  <project path="gonk/external/fdlibm"                                         name="platform/external/fdlibm" />
+  <project path="gonk/external/flac"                                           name="platform/external/flac" />
+  <project path="gonk/external/freetype"                                       name="platform/external/freetype" />
+  <project path="gonk/external/giflib"                                         name="platform/external/giflib" />
+  <project path="gonk/external/gtest"                                          name="platform/external/gtest"              revision="8c212ebe53bb2baab3575f03069016f1fb11e449" />
+  <project path="gonk/external/harfbuzz"                                       name="platform/external/harfbuzz" />
+  <project path="gonk/external/icu4c"                                          name="platform/external/icu4c" />
+  <project path="gonk/external/iptables"                                       name="platform/external/iptables" />
+  <project path="gonk/external/jpeg"                                           name="platform/external/jpeg" />
+  <project path="gonk/external/libgsm"                                         name="platform/external/libgsm" />
+  <project path="gonk/external/liblzf"                                         name="platform/external/liblzf" />
+  <project path="gonk/external/libnfc-nxp"                                     name="platform/external/libnfc-nxp" />
+  <project path="gonk/external/libnl-headers"                                  name="platform/external/libnl-headers" />
+  <project path="gonk/external/libpng"                                         name="platform/external/libpng" />
+  <project path="gonk/external/libvpx"                                         name="platform/external/libvpx" />
+  <project path="gonk/external/llvm"                                           name="platform/external/llvm" />
+  <project path="gonk/external/mksh"                                           name="platform/external/mksh" />
+  <project path="gonk/external/openssl"                                        name="platform/external/openssl" />
+  <project path="gonk/external/protobuf"                                       name="platform/external/protobuf" />
+  <project path="gonk/external/safe-iop"                                       name="platform/external/safe-iop" />
+  <project path="gonk/external/screencap-gonk"             remote="b2g"        name="screencap-gonk"                       revision="master" />
+  <project path="gonk/external/skia"                                           name="platform/external/skia" />
+  <project path="gonk/external/sonivox"                                        name="platform/external/sonivox" />
+  <project path="gonk/external/speex"                                          name="platform/external/speex" />
+  <project path="gonk/external/sqlite"                                         name="platform/external/sqlite"             revision="fb30e613139b8836fdc8e81e166cf3a76e5fa17f"/>
+  <project path="gonk/external/stlport"                                        name="platform/external/stlport" />
+  <project path="gonk/external/strace"                                         name="platform/external/strace" />
+  <project path="gonk/external/svox"                                           name="platform/external/svox"               revision="ics_strawberry" />
+  <project path="gonk/external/tagsoup"                                        name="platform/external/tagsoup" />
+  <project path="gonk/external/tinyalsa"                                       name="platform/external/tinyalsa" />
+  <project path="gonk/external/tremolo"                                        name="platform/external/tremolo" />
+  <project path="gonk/external/unbootimg"                  remote="b2g"        name="unbootimg"                            revision="master" />
+  <project path="gonk/external/webp"                                           name="platform/external/webp" />
+  <project path="gonk/external/webrtc"                                         name="platform/external/webrtc" />
+  <project path="gonk/external/wpa_supplicant"                                 name="platform/external/wpa_supplicant" />
+  <project path="gonk/external/hostap"                                         name="platform/external/hostap" />
+  <project path="gonk/external/zlib"                                           name="platform/external/zlib" />
+  <project path="gonk/external/yaffs2"                                         name="platform/external/yaffs2" />
+  <project path="gonk/frameworks/base"                                         name="platform/frameworks/base"             revision="b2g_ics_1.2" />
+  <project path="gonk/frameworks/opt/emoji"                                    name="platform/frameworks/opt/emoji" />
+  <project path="gonk/frameworks/support"                                      name="platform/frameworks/support" />
+  <project path="gonk/hardware/libhardware"                                    name="platform/hardware/libhardware"        revision="b2g_ics_1.2" />
+  <project path="gonk/hardware/libhardware_legacy"                             name="platform/hardware/libhardware_legacy" revision="b2g_ics_1.2" />
+  <project path="gonk/libcore"                                                 name="platform/libcore" />
+  <project path="gonk/ndk"                                                     name="platform/ndk" />
+  <project path="gonk/prebuilt"                                                name="platform/prebuilt" />
+  <project path="gonk/system/bluetooth"                                        name="platform/system/bluetooth" />
+  <project path="gonk/system/core"                                             name="platform/system/core"                 revision="b2g_ics_1.2" />
+  <project path="gonk/system/extras"                                           name="platform/system/extras" />
+  <project path="gonk/system/media"                                            name="platform/system/media" />
+  <project path="gonk/system/netd"                                             name="platform/system/netd"                 revision="b2g_ics_1.2" />
+  <project path="gonk/system/vold"                                             name="platform/system/vold"                 revision="b2g_ics_1.2" />
+  <!-- hamachi specific things -->       
+  <project path="gonk/device/qcom/b2g_common"                                  name="quic/lf/b2g/build"                    revision="master" />
+  <project path="gonk/external/jsmin"                                          name="quic/lf/b2g/external/jsmin"           revision="cec896f0affaa0226c02605ad28d42df1bc0e393" />
+  <project path="gonk/device/qcom/common"                                      name="device/qcom/common" />
+  <project path="gonk/device/qcom/msm7627a"                                    name="platform/vendor/qcom/msm7627a"        revision="b2g_ics_1.2" />
+  <project path="gonk/device/qcom/hamachi"                 remote="b2g"        name="android-device-hamachi"               revision="master" />
+  <project path="gonk/kernel"                                                  name="kernel/msm"                           revision="b2g_ics_1.2" />
+  <project path="gonk/hardware/qcom/camera"                                    name="platform/hardware/qcom/camera"        revision="b2g_ics_1.2" />
+  <project path="gonk/hardware/qcom/display"                                   name="platform/hardware/qcom/display"       revision="b2g_ics_1.2" />
+  <project path="gonk/hardware/qcom/media"                                     name="platform/hardware/qcom/media"         revision="b2g_ics_1.2" />
+  <project path="gonk/hardware/qcom/gps"                                       name="platform/hardware/qcom/gps" />
+  <project path="gonk/hardware/msm7k"                                          name="platform/hardware/msm7k"              revision="b2g_ics_1.2" />
+  <project path="gonk/vendor/qcom/opensource/omx/mm-core"                      name="platform/vendor/qcom-opensource/omx/mm-core" />
+  <project path="gonk/hardware/ril"                                            name="platform/hardware/ril"                revision="b2g_ics_1.2" />
+
+</manifest>
