@@ -29,7 +29,22 @@
   <project path="build"                                    remote="b2g"        name="platform_build"                       revision="master" groups="gaia,gecko">
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
+  
+  <!-- Testing if this triggers the other builds -->
+  <project path="gonk/gonk-misc"                           remote="b2g"        name="gonk-misc"                            revision="master" groups="gaia,gecko"/>
 
+  <!-- check this is a separate project-->
+  <project path="development"                                                  name="platform/development"                 revision="b2g_ics_1.2" />
+  
+  <!-- Device backup? -->
+  <project path="device/common"                                           name="device/common" />
+  <project path="device/sample"                                           name="device/sample" />
+  <project path="device/qcom/common"                                      name="device/qcom/common" />
+  <project path="device/qcom/msm7627a"                                    name="platform/vendor/qcom/msm7627a"        revision="b2g_ics_1.2" />
+  <project path="device/qcom/hamachi"                 remote="b2g"        name="android-device-hamachi"               revision="master" />
+  
+  
+  <!--   Firefox OS                                                  -->
 
   <!-- Gaia, the Firefox OS applications -->
   <project path="gaia"                                     remote="mozillaorg" name="gaia.git"                             revision="master" groups="gaia"/>
@@ -41,7 +56,6 @@
 
   <!-- Gonk specific things and forks -->
   <project path="gonk/dalvik"                              remote="b2g"        name="fake-dalvik"                          revision="master" />
-  <project path="gonk/gonk-misc"                           remote="b2g"        name="gonk-misc"                            revision="master" />
   <project path="gonk/rilproxy"                            remote="b2g"        name="rilproxy"                             revision="master" />
   <project path="gonk/librecovery"                         remote="b2g"        name="librecovery"                          revision="master" />
   <project path="gonk/external/moztt"                      remote="b2g"        name="moztt"                                revision="master" />
@@ -50,9 +64,6 @@
   <project path="gonk/abi/cpp"                                                 name="platform/abi/cpp" />
   <project path="gonk/bionic"                                                  name="platform/bionic" />
   <project path="gonk/bootable/recovery"                                       name="platform/bootable/recovery"           revision="b2g_ics_1.2" />
-  <project path="gonk/development"                                             name="platform/development"                 revision="b2g_ics_1.2" />
-  <project path="gonk/device/common"                                           name="device/common" />
-  <project path="gonk/device/sample"                                           name="device/sample" />
   <project path="gonk/external/apriori"                    remote="b2g"        name="platform_external_apriori"            revision="master" />
   <project path="gonk/external/bluetooth/bluez"                                name="platform/external/bluetooth/bluez" />
   <project path="gonk/external/bluetooth/glib"                                 name="platform/external/bluetooth/glib" />
@@ -121,9 +132,6 @@
   <!-- hamachi specific things -->       
   <project path="gonk/device/qcom/b2g_common"                                  name="quic/lf/b2g/build"                    revision="master" />
   <project path="gonk/external/jsmin"                                          name="quic/lf/b2g/external/jsmin"           revision="cec896f0affaa0226c02605ad28d42df1bc0e393" />
-  <project path="gonk/device/qcom/common"                                      name="device/qcom/common" />
-  <project path="gonk/device/qcom/msm7627a"                                    name="platform/vendor/qcom/msm7627a"        revision="b2g_ics_1.2" />
-  <project path="gonk/device/qcom/hamachi"                 remote="b2g"        name="android-device-hamachi"               revision="master" />
   <project path="gonk/kernel"                                                  name="kernel/msm"                           revision="b2g_ics_1.2" />
   <project path="gonk/hardware/qcom/camera"                                    name="platform/hardware/qcom/camera"        revision="b2g_ics_1.2" />
   <project path="gonk/hardware/qcom/display"                                   name="platform/hardware/qcom/display"       revision="b2g_ics_1.2" />
@@ -132,5 +140,7 @@
   <project path="gonk/hardware/msm7k"                                          name="platform/hardware/msm7k"              revision="b2g_ics_1.2" />
   <project path="gonk/vendor/qcom/opensource/omx/mm-core"                      name="platform/vendor/qcom-opensource/omx/mm-core" />
   <project path="gonk/hardware/ril"                                            name="platform/hardware/ril"                revision="b2g_ics_1.2" />
+  
+  
 
 </manifest>
