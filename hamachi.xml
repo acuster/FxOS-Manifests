@@ -26,17 +26,17 @@
 
 
   <!-- Build script (forked from ndk) -->
-  <project path="build"                                    remote="b2g"        name="platform_build"                       revision="master" group="gaia,gecko">
+  <project path="build"                                    remote="b2g"        name="platform_build"                       revision="master" groups="gaia,gecko">
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
 
 
   <!-- Gaia, the Firefox OS applications -->
-  <project path="gaia"                                     remote="mozillaorg" name="gaia.git"                             revision="master" group="gaia"/>
+  <project path="gaia"                                     remote="mozillaorg" name="gaia.git"                             revision="master" groups="gaia"/>
 
 
   <!-- Gecko, the HTML engine ported to run on Gonk -->
-  <project path="gecko"                                    remote="mozillaorg" name="gecko.git"                            revision="master"  group="gecko"/>
+  <project path="gecko"                                    remote="mozillaorg" name="gecko.git"                            revision="master"  groups="gecko"/>
 
 
   <!-- Gonk specific things and forks -->
